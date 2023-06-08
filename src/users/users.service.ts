@@ -26,15 +26,15 @@ export class UsersService {
 		return this.userModel.findOne({ username: username });
 	}
 
-	async findById(id: number): Promise<User> {
+	async findById(id: string): Promise<User> {
 		return this.userModel.findById(id);
 	}
 
-	async update(id: number, updateUserDto: UpdateUserDto): Promise<User> {
+	async update(id: string, updateUserDto: UpdateUserDto): Promise<User> {
 		return this.userModel.findByIdAndUpdate(id, updateUserDto);
 	}
 
-	async remove(id: number) {
+	async remove(id: string) {
 		return this.userModel.findByIdAndDelete(id);
 	}
 }
