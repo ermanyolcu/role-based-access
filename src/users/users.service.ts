@@ -4,7 +4,6 @@ import { Model } from 'mongoose';
 import { User, UserDocument } from 'src/users/user.schemas';
 import { CreateUserDto } from './dto/create-user.dto';
 import { UpdateUserDto } from './dto/update-user.dto';
-//import { User } from './entities/user.entity';
 
 @Injectable()
 export class UsersService {
@@ -13,9 +12,8 @@ export class UsersService {
 		private userModel: Model<UserDocument>
 	) {}
 
-	async create(createUserDto: CreateUserDto): Promise<User> {
-		const createdUser = new this.userModel(createUserDto);
-		return createdUser.save();
+	async create(createUserDto: CreateUserDto): Promise<CreateUserDto> {
+		return this.userModel.create(createUserDto);
 	}
 
 	async findAll(): Promise<User[]> {
